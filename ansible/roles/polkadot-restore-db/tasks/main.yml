@@ -19,6 +19,7 @@
     url: '{{ polkadot_db_snapshot_url }}'
     checksum: '{{ polkadot_db_snapshot_checksum | quote }}'
     dest: '{{ db_dest_path }}/db.new.7z'
+    force: yes
     mode: '0700'
     owner: 'polkadot'
     group: 'polkadot'  

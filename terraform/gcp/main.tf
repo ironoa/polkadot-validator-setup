@@ -44,6 +44,7 @@ resource "google_compute_instance" "main-{{ name }}" {
   tags         = ["{{ name }}"]
   count        = var.node_count
   allow_stopping_for_update        = false
+  min_cpu_platform  = "Intel Skylake"
 
   boot_disk {
     initialize_params {
@@ -51,6 +52,12 @@ resource "google_compute_instance" "main-{{ name }}" {
       size  = 400
     }
   }
+
+
+  # if you have a recovery disk ready instead...
+  # boot_disk {
+  #   source     = "recovery-disk"
+  # }
 
   network_interface {
     network = "default"
